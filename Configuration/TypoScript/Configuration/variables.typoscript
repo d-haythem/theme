@@ -1,0 +1,14 @@
+theme {
+    config {
+        logo = {$theme.config.logo}
+        favicon = {$theme.config.favicon}
+
+        enableCSSCompression = {$theme.config.enableCSSCompression}
+        enableJSCompression = {$theme.config.enableJSCompression}
+        enableCSSMerging = {$theme.config.enableCSSMerging}
+        enableJSMerging = {$theme.config.enableJSMerging}
+    }
+    pages {
+        root = {$module.tx_sitefactory.pages.root}
+    }
+}

@@ -1,0 +1,6 @@
+# Workspace preview configuration
+options {
+    workspaces {
+
+    }
+}

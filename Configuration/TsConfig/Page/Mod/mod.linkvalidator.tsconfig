@@ -1,0 +1,14 @@
+mod {
+    linkvalidator {
+        searchFields {
+            pages = media,url
+            tt_content = bodytext,pi_flexform
+            tx_news_domain_model_news = bodytext
+        }
+
+        linktypes = db,file,external
+        checkhidden = 0
+        showCheckLinkTab = 1
+        linkhandler.reportHiddenRecords = 0
+    }
+}

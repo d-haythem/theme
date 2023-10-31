@@ -1,0 +1,18 @@
+theme {
+    config {
+        # cat=theme/config; type=boolean; label=Enable CSS compression
+        enableCSSCompression = 0
+
+        # cat=theme/config; type=boolean; label=Enable JS compression
+        enableJSCompression = 0
+
+        # cat=theme/config; type=boolean; label=Enable CSS concatenation
+        enableCSSMerging = 0
+
+        # cat=theme/config; type=boolean; label=Enable JS concatenation
+        enableJSMerging = 0
+
+        # cat=theme/config; type=boolean; label=Enable TypoScript debugging
+        enableTypoScriptDebug = 0
+    }
+}

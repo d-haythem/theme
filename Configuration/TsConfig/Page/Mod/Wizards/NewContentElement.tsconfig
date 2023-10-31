@@ -1,0 +1,6 @@
+mod.wizards.newContentElement {
+    renderMode = tabs
+    wizardItems {
+        # Include CE configuration
+    }
+}

@@ -1,0 +1,21 @@
+################
+#### CONFIG ####
+################
+config {
+    absRefPrefix = /
+    baseURL >
+
+    // Disable admin panel till issue with caching will not be fixed
+    admPanel = 1
+
+    spamProtectEmailAddresses = 1
+    spamProtectEmailAddresses_atSubst = @
+    spamProtectEmailAddresses_lastDotSubst = .
+
+    compressCss = {$theme.config.enableCSSCompression}
+    compressJs = {$theme.config.enableJSCompression}
+    concatenateCss = {$theme.config.enableCSSMerging}
+    concatenateJs = {$theme.config.enableJSMerging}
+
+    debug = {$theme.config.enableTypoScriptDebug}
+}

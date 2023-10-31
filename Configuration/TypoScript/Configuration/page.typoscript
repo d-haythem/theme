@@ -1,0 +1,153 @@
+##############
+#### PAGE ####
+##############
+page = PAGE
+page {
+    typeNum = 0
+    shortcutIcon = EXT:theme/Resources/Public/Icons/favicon.ico
+
+    10 = FLUIDTEMPLATE
+    10 {
+        # Template names will be generated automatically by converting the applied
+        # backend_layout, there is no explicit mapping necessary anymore.
+        #
+        # BackendLayout Key
+        # subnavigation_right_2_columns -> SubnavigationRight2Columns.html
+        #
+        # Backend Record
+        # uid: 1 -> 1.html
+        #
+        # Database Entry
+        # value: -1 -> None.html
+        # value: pagets__subnavigation_right_2_columns -> SubnavigationRight2Columns.html
+        templateName = TEXT
+        templateName {
+            cObject = TEXT
+            cObject {
+                data = pagelayout
+                required = 1
+                case = uppercamelcase
+                split {
+                    token = pagets__
+                    cObjNum = 1
+                    1.current = 1
+                }
+            }
+            ifEmpty = Default
+        }
+        templateRootPaths {
+            0 = EXT:theme/Resources/Private/Templates/Page/
+            1 = EXT:theme/Resources/Private/Templates/ContentElements/
+        }
+        partialRootPaths {
+            0 = EXT:theme/Resources/Private/Partials/Page/
+            1 = EXT:theme/Resources/Private/Partials/ContentElements/
+        }
+        layoutRootPaths {
+            0 = EXT:theme/Resources/Private/Layouts/Page/
+            1 = EXT:theme/Resources/Private/Layouts/ContentElements/
+        }
+        dataProcessing {
+            10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+            10 {
+                references.fieldName = media
+            }
+            20 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            20 {
+                levels = 2
+                includeSpacer = 1
+                as = mainnavigation
+            }
+        }
+    }
+
+    meta {
+        viewport = {$theme.page.meta.viewport}
+        robots = {$theme.page.meta.robots}
+        apple-mobile-web-app-capable = {$theme.page.meta.apple-mobile-web-app-capable}
+        description = {$theme.page.meta.description}
+        description {
+            override.field = description
+        }
+        author = {$theme.page.meta.author}
+        author {
+            override.field = author
+        }
+        keywords = {$theme.page.meta.keywords}
+        keywords {
+            override.field = keywords
+        }
+        X-UA-Compatible = {$theme.page.meta.compatible}
+        X-UA-Compatible {
+            attribute = http-equiv
+        }
+
+        # OpenGraph Tags
+        og:title {
+            attribute = property
+            field = title
+        }
+        og:site_name {
+            attribute = property
+            data = TSFE:tmpl|setup|sitetitle
+        }
+        og:description = {$theme.page.meta.description}
+        og:description {
+            attribute = property
+            field = description
+        }
+        og:image {
+            attribute = property
+            stdWrap.cObject = FILES
+            stdWrap.cObject {
+                references {
+                    data = levelfield:-1, media, slide
+                }
+                maxItems = 1
+                renderObj = COA
+                renderObj {
+                    10 = IMG_RESOURCE
+                    10 {
+                        file {
+                            import.data = file:current:uid
+                            treatIdAsReference = 1
+                            width = 1280c
+                            height = 720c
+                        }
+                        stdWrap {
+                            typolink {
+                                parameter.data = TSFE:lastImgResourceInfo|3
+                                returnLast = url
+                                forceAbsoluteUrl = 1
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    includeCSSLibs {
+
+    }
+
+    includeCSS {
+        theme_layout = EXT:theme/Resources/Public/Css/layout.min.css
+    }
+
+    includeJSLibs {
+
+    }
+
+    includeJS {
+
+    }
+
+    includeJSFooterlibs {
+
+    }
+
+    includeJSFooter {
+        theme_scripts = EXT:theme/Resources/Public/JavaScript/Dist/scripts.js
+    }
+}

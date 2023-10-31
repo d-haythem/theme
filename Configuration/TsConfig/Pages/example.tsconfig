@@ -1,0 +1,13 @@
+mod.web_list {
+    allowedNewTables =
+}
+
+TCEFORM {
+    tx_news_domain_model_news {
+        ## DISABLED FIELDS
+
+        ## ENABLED FIELDS
+
+        ## LABEL FIELDS
+    }
+}
