@@ -5,6 +5,8 @@ defined('TYPO3') or die('Access denied.');
  */
 $GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets']['theme'] = 'EXT:theme/Configuration/RTE/Default.yaml';
 
+$GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets']['default'] = 'EXT:theme/Configuration/RTE/Default.yaml';
+
 /***************
  * PageTS
  */
